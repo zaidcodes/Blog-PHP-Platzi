@@ -2,7 +2,9 @@
 
 namespace app\controllers\admin;
 
-class PostController{
+use app\controllers\BaseController;
+
+class PostController extends BaseController{
 
     public function getIndex(){
         global $pdo;
@@ -10,11 +12,11 @@ class PostController{
         $query = $pdo->prepare('SELECT Date_format(post_created_at,"%d-%M-%Y") as post_created_at, post_created_by, post_title FROM blog_post ORDER BY post_created_at,post_created_by ASC');
         $query->execute();
         $blogPosts = $query->fetchAll(\PDO::FETCH_ASSOC);
-        return render('../views/admin/posts.php', ['blogPosts'=>$blogPosts]);
+        return $this->render('admin/posts', ['blogPosts'=>$blogPosts]);
     }
 
     public function getCreate(){
-        return render('../views/admin/insert-post.php');
+        return $this->render('admin/insert-post');
     }
     
     public function postCreate(){
@@ -28,7 +30,7 @@ class PostController{
             'content' => $_POST['inputContent'],
             'author' => $_POST['inputAuthor']
         ]);
-        return render('../views/admin/insert-post.php', ['result'=>$result]);
+        return $this->render('admin/insert-post', ['result'=>$result]);
     }
 
 

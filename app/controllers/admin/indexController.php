@@ -1,10 +1,12 @@
 <?php
 namespace app\controllers\admin;
 
-class IndexController{
+use app\controllers\BaseController;
+
+class IndexController extends BaseController{
 
     function getIndex(){
-        return render('../views/admin/index.php');
+        return $this->render('admin/index');
     }
 
 }
