@@ -1,17 +1,18 @@
 CREATE TABLE `blog_post`(
-    `post_id`            INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `post_title`         TEXT NOT NULL,
-    `post_content`       LONGTEXT NOT NULL,
-    `post_image`          VARCHAR(300) NOT NULL DEFAULT 'images/unknown.jpg',
-    `post_created_by`    VARCHAR(128) NOT NULL DEFAULT 'Anonyous',
-    `post_created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `post_modified_at`   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`post_id`)
+    `id`            INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `title`         TEXT NOT NULL,
+    `content`       LONGTEXT NOT NULL,
+    `image_url`     VARCHAR(300) NOT NULL DEFAULT 'images/unknown.jpg',
+    `created_by`    VARCHAR(128) NOT NULL DEFAULT 'Anonyous',
+    `created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `active`        TINYINT(1) NOT NULL DEFAULT '1', 
+    PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;
 
 INSERT INTO `blog_post`(
- `post_title`,
- `post_content`)
+ `title`,
+ `content`)
 VALUES
 ('title 1', '--1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque perferendis, nobis corporis quod magni modi tempore beatae necessitatibus ea! In, laudantium commodi voluptates minima beatae officiis officia ut eaque unde?'),
 ('title 2', '--2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque perferendis, nobis corporis quod magni modi tempore beatae necessitatibus ea! In, laudantium commodi voluptates minima beatae officiis officia ut eaque unde?'),
