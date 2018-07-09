@@ -1,16 +1,3 @@
-<?php
-$result = false;
-if(!empty($_POST)){
-    $sql = "INSERT INTO blog_post (post_title, post_content, post_created_by) VALUES (:title, :content, :author);";
-    $query = $pdo->prepare($sql);
-    $result = $query->execute([
-        'title' => $_POST['inputTitle'],
-        'content' => $_POST['inputContent'],
-        'author' => $_POST['inputAuthor']
-    ]);
-}
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,12 +17,12 @@ if(!empty($_POST)){
             <div class="col-md-8">
             <h2>New Post</h2>
             <p>
-                <a class="btn btn-secondary" href="posts.php">Back</a>
+                <a class="btn btn-secondary" href="<?=BASE_URL . 'admin/posts'?>">Back</a>
             </p>
-            <?php if($result){ ?>
+            <?php if(isset($result) && $result) { ?>
                 <div class="alert alert-success">Post saved!</div>
             <?php } ?>
-            <form action="insert-post.php" method="POST">
+            <form method="POST">
                 <br>
                 <div class="form-group">
                     <!-- <label for="inputTitle">Title</label> -->
@@ -65,7 +52,7 @@ if(!empty($_POST)){
             <div class="col-md-12">
                 <footer>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!<br>
-                    <a href="index.php">Admin panel</a>
+                    <a href="<?=BASE_URL . 'admin'?>">Admin panel</a>
                 </footer>
             </div>
         </div>

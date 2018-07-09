@@ -17,7 +17,7 @@
             <div class="col-md-8">
                 <ul>
                     <li>
-                        <a href="posts.php">Manage Posts</a>
+                        <a href="<?=BASE_URL . 'admin/posts'?>">Manage Posts</a>
                     </li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-md-12">
                 <footer>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!
-                    <a href="admin/index.php">Admin panel</a>
+                    <a href="<?=BASE_URL . 'admin'?>">Admin panel</a>
                 </footer>
             </div>
         </div>

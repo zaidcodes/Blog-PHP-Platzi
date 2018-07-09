@@ -36,7 +36,7 @@
             <div class="col-md-12">
                 <footer>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!<br>
-                    <a href="admin/index.php">Admin panel</a>
+                    <a href="<?=BASE_URL . 'admin'?>">Admin panel</a>
                 </footer>
             </div>
         </div>

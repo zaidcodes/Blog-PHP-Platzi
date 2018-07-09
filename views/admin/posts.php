@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-8">
             <h2>Added Posts </h2> <br>
-            <a class="btn btn-primary" href="insert-post.php">New Post</a><br>
+            <a class="btn btn-primary" href="<?=BASE_URL . 'admin/posts/create'?>">New Post</a><br>
                 <table class="table">
                     <tr>
                         <th>Date</th>
@@ -45,7 +45,7 @@
             <div class="col-md-12">
                 <footer>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!<br>
-                    <a href="index.php">Admin panel</a>
+                    <a href="<?=BASE_URL . 'admin'?>">Admin panel</a>
                 </footer>
             </div>
         </div>
