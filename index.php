@@ -1,7 +1,7 @@
 <?php
 include_once 'config.php';
 
-$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY post_id DESC');
+$query = $pdo->prepare('SELECT post_title, Date_format(post_created_at,"%d-%M-%Y") as post_created_at, post_created_by, post_image, post_content  FROM blog_post ORDER BY post_created_at DESC');
 $query->execute();
 
 $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -30,7 +30,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($blogPosts as $blogPost) { ?>
                     <div class="blog-post">
                         <h2 class="post-title"><?=$blogPost['post_title'];?></h2>
-                        <p>Jan 1, 2020 by <a href="">Julio</a></p>
+                        <p><?=$blogPost['post_created_at'];?> by <a href=""><?=$blogPost['post_created_by'];?></a></p>
                         <div class="blog-post-image">
                             <img src="<?=$blogPost['post_image'];?>" alt="Image-post">
                         </div>
@@ -45,9 +45,12 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
         <div class="row">
-            <footer>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!
-            </footer>
+            <div class="col-md-12">
+                <footer>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!<br>
+                    <a href="admin/index.php">Admin panel</a>
+                </footer>
+            </div>
         </div>
     </div>
 </body>
