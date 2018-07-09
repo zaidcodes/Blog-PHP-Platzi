@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
 
+session_start();
+
 $baseUrl = '';
 $baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']),'',$_SERVER['SCRIPT_NAME']); 
 $baseUrl = 'http://' . $_SERVER['HTTP_HOST'] . $baseDir;
@@ -37,6 +39,7 @@ use Phroute\Phroute\RouteCollector;
 $router = new RouteCollector();
 
 $router->controller('/', app\controllers\IndexController::class);
+$router->controller('/auth', app\controllers\AuthController::class);
 $router->controller('/admin', app\controllers\admin\IndexController::class);
 $router->controller('/admin/posts', app\controllers\admin\PostController::class);
 $router->controller('/admin/users', app\controllers\admin\UserController::class);
