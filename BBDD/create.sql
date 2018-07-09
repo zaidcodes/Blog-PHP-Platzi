@@ -10,6 +10,21 @@ CREATE TABLE `blog_post`(
     PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;
 
+CREATE TABLE `user`(
+    `id`            INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name`          VARCHAR(32) NOT NULL,
+    `lastname`      VARCHAR(32) NOT NULL,
+    `nickname`      VARCHAR(32) NOT NULL,
+    `password`      VARCHAR(128) NOT NULL,   
+    `email`         VARCHAR(128) NOT NULL,
+    `created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `active`        TINYINT(1) NOT NULL DEFAULT '1', 
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `user_email` (`email`),
+    UNIQUE KEY `user_nickname` (`nickname`)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;
+
 INSERT INTO `blog_post`(
  `title`,
  `content`)
