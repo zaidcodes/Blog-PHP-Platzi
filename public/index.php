@@ -25,9 +25,7 @@ $router = new RouteCollector();
 
 $router->controller('/', App\Controllers\IndexController::class);
 
-$router->get('/admin',function(){
-    return render('../views/admin/index.php');
-});
+$router->controller('/admin',App\Controllers\Admin\IndexController::class);
 
 $router->get('/admin/posts/',function() use($pdo){
     $query = $pdo->prepare('SELECT Date_format(post_created_at,"%d-%M-%Y") as post_created_at, post_created_by, post_title FROM blog_post ORDER BY post_created_at,post_created_by ASC');
