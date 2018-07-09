@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <h2>{{ blogPost.title }}</h2>
+    <p>{{ blogPost.created_at}} by <a href="#">{{ blogPost.created_by}}</a></p>
+        <div class="blog-post-image">
+        <img class="img-fluid" src="{{ blogPost.img_url }}" alt="">
+        </div>
+    <div class="blog-post-content">
+        {{ blogPost.content }}
+    </div>
+{% endblock %}

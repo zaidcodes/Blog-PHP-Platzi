@@ -53,6 +53,8 @@ $router->group(['before' => 'auth'],function($router){
 
 $router->controller('/', app\controllers\IndexController::class);
 $router->controller('/auth', app\controllers\AuthController::class);
+$router->controller('/post', app\controllers\PostController::class);
+
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
