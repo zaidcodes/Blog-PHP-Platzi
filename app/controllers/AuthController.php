@@ -5,6 +5,7 @@ namespace app\controllers;
 use Sirius\Validation\Validator;
 use app\models\User;
 use app\controllers\admin\UserController;
+use app\Log;
 
 class AuthController extends BaseController{
 
@@ -23,10 +24,12 @@ class AuthController extends BaseController{
             if($user){
                 if(password_verify($_POST['Password'],$user->password)){
                     $_SESSION['userId'] = $user->id;
+                    Log::logInfo('Login userId: ' . $user->id);
                     header('Location:' . BASE_URL . 'admin');
                     return null;
                 }
             }
+            Log::logError('Email and Pass does not match for: ' . $_POST['Email']);
             $validator->addMessage('Match', 'Username and/or password does not match.');
         }
         $errors = $validator->getMessages();
@@ -36,6 +39,7 @@ class AuthController extends BaseController{
     }
 
     public function getLogout(){
+        Log::logInfo('Logout userId: ' . $_SESSION['userId']);
         unset($_SESSION['userId']);
         header('Location: ' . BASE_URL . 'auth/login');
     }
