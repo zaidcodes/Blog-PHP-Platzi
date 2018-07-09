@@ -3,13 +3,13 @@
 {% block content %}
     {% for blogPost in blogPosts %}
     <div class="blog-post">
-        <h2 class="post-title">{{ blogPost.post_title}}</h2>
-        <p>{{ blogPost.post_created_at}} by <a href="">{{ blogPost.post_created_by}}</a></p>
+        <h2 class="post-title">{{ blogPost.title}}</h2>
+        <p>{{ blogPost.created_at}} by <a href="">{{ blogPost.created_by}}</a></p>
         <div class="blog-post-image">
-            <img src="{{ blogPost.post_image}}" alt="Image-post">
+            <img src="{{ blogPost.image_url}}" alt="Image-post">
         </div>
         <div class="blog-post-content">
-            {{ blogPost.post_content}}
+            {{ blogPost.content}}
         </div>
     </div>
     {% endfor %}
