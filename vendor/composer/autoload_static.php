@@ -28,31 +28,11 @@ class ComposerStaticInit59feb54a1fd2036e9e66eaa8912e6bbb
         ),
     );
 
-    public static $classMap = array (
-        'Phroute\\Phroute\\Dispatcher' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Dispatcher.php',
-        'Phroute\\Phroute\\Exception\\BadRouteException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/BadRouteException.php',
-        'Phroute\\Phroute\\Exception\\HttpException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpException.php',
-        'Phroute\\Phroute\\Exception\\HttpMethodNotAllowedException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpMethodNotAllowedException.php',
-        'Phroute\\Phroute\\Exception\\HttpRouteNotFoundException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpRouteNotFoundException.php',
-        'Phroute\\Phroute\\HandlerResolver' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/HandlerResolver.php',
-        'Phroute\\Phroute\\HandlerResolverInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/HandlerResolverInterface.php',
-        'Phroute\\Phroute\\Route' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Route.php',
-        'Phroute\\Phroute\\RouteCollector' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteCollector.php',
-        'Phroute\\Phroute\\RouteDataArray' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataArray.php',
-        'Phroute\\Phroute\\RouteDataInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataInterface.php',
-        'Phroute\\Phroute\\RouteDataProviderInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataProviderInterface.php',
-        'Phroute\\Phroute\\RouteParser' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteParser.php',
-        'app\\controllers\\IndexController' => __DIR__ . '/../..' . '/app/controllers/indexController.php',
-        'app\\controllers\\admin\\IndexController' => __DIR__ . '/../..' . '/app/controllers/admin/IndexController.php',
-        'app\\controllers\\admin\\PostController' => __DIR__ . '/../..' . '/app/controllers/admin/PostController.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit59feb54a1fd2036e9e66eaa8912e6bbb::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit59feb54a1fd2036e9e66eaa8912e6bbb::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit59feb54a1fd2036e9e66eaa8912e6bbb::$classMap;
 
         }, null, ClassLoader::class);
     }
