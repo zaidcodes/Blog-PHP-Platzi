@@ -28,6 +28,17 @@ $router->get('/',function() use($pdo){
     $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
     return render('../views/index.php', ['blogPosts'=>$blogPosts]);
 });
+$router->get('/admin',function(){
+    return render('../views/admin/index.php');
+});
+$router->get('/admin/posts/',function() use($pdo){
+    $query = $pdo->prepare('SELECT Date_format(post_created_at,"%d-%M-%Y") as post_created_at, post_created_by, post_title FROM blog_post ORDER BY post_created_at,post_created_by ASC');
+    $query->execute();
+    $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+    return render('../views/admin/posts.php', ['blogPosts'=>$blogPosts]);
+});
+
+
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
