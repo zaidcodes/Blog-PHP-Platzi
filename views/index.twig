@@ -6,7 +6,7 @@
         <h2 class="post-title">{{ blogPost.title}}</h2>
         <p>{{ blogPost.created_at}} by <a href="">{{ blogPost.created_by}}</a></p>
         <div class="blog-post-image">
-            <img src="{{ blogPost.image_url}}" alt="Image-post">
+            <img class="img-fluid" src="{{ blogPost.image_url}}" alt="Image-post">
         </div>
         <div class="blog-post-content">
             {{ blogPost.content}}
