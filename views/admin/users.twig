@@ -1,0 +1,28 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h2>Added Users </h2> <br>
+    <a class="btn btn-primary" href="{{ 'users/create' }}">New User</a><br>
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Nickname</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td> {{ user.created_at }}</td>
+                <td> {{ user.nickname }}</td>
+                <td> {{ user.email }}</td>
+                <td> {{ user.name }}</td>
+                <td> {{ user.lastname }}</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
