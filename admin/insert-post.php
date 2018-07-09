@@ -1,5 +1,4 @@
 <?php
-include_once '../config.php';
 $result = false;
 if(!empty($_POST)){
     $sql = "INSERT INTO blog_post (post_title, post_content, post_created_by) VALUES (:title, :content, :author);";

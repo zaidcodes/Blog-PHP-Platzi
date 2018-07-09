@@ -1,6 +1,4 @@
 <?php
-include_once '../config.php';
-
 $query = $pdo->prepare('SELECT Date_format(post_created_at,"%d-%M-%Y") as post_created_at, post_created_by, post_title FROM blog_post ORDER BY post_created_at,post_created_by ASC');
 $query->execute();
 
