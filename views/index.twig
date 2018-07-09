@@ -15,18 +15,18 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <?php foreach ($blogPosts as $blogPost) { ?>
+                {% for blogPost in blogPosts %}
                     <div class="blog-post">
-                        <h2 class="post-title"><?=$blogPost['post_title'];?></h2>
-                        <p><?=$blogPost['post_created_at'];?> by <a href=""><?=$blogPost['post_created_by'];?></a></p>
+                        <h2 class="post-title">{{ blogPost.post_title}}</h2>
+                        <p>{{ blogPost.post_created_at}} by <a href="">{{ blogPost.post_created_by}}</a></p>
                         <div class="blog-post-image">
-                            <img src="<?=$blogPost['post_image'];?>" alt="Image-post">
+                            <img src="{{ blogPost.post_image}}" alt="Image-post">
                         </div>
                         <div class="blog-post-content">
-                        <?=$blogPost['post_content'];?>
+                            {{ blogPost.post_content}}
                         </div>
                     </div>
-                <?php } ?>
+                {% endfor %}
             </div>
             <div class="col-md-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim odit deleniti ratione aliquid magnam cupiditate autem. Voluptatem, est dolorem repellat quisquam, iste corporis eos fugit, odio distinctio ipsa accusantium.
@@ -36,7 +36,7 @@
             <div class="col-md-12">
                 <footer>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam corrupti deserunt voluptates eaque autem consectetur, ab saepe similique modi commodi quis facere aliquid at nemo alias sint consequatur repudiandae!<br>
-                    <a href="<?=BASE_URL . 'admin'?>">Admin panel</a>
+                    <a href="{{ 'admin' | url }}">Admin panel</a>
                 </footer>
             </div>
         </div>
