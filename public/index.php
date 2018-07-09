@@ -38,11 +38,21 @@ $capsule->bootEloquent();
 use Phroute\Phroute\RouteCollector;
 $router = new RouteCollector();
 
+$router->filter('auth', function(){
+    if(!isset($_SESSION['userId'])){
+        header('Location: ' . BASE_URL . 'auth/login');
+        return false;
+    }
+});
+
+$router->group(['before' => 'auth'],function($router){
+    $router->controller('/admin', app\controllers\admin\IndexController::class);
+    $router->controller('/admin/posts', app\controllers\admin\PostController::class);
+    $router->controller('/admin/users', app\controllers\admin\UserController::class);
+});
+
 $router->controller('/', app\controllers\IndexController::class);
 $router->controller('/auth', app\controllers\AuthController::class);
-$router->controller('/admin', app\controllers\admin\IndexController::class);
-$router->controller('/admin/posts', app\controllers\admin\PostController::class);
-$router->controller('/admin/users', app\controllers\admin\UserController::class);
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 

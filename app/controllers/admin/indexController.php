@@ -16,7 +16,8 @@ class IndexController extends BaseController{
             }
 
         }
-        header('Location: ' . BASE_URL . 'auth/login');
+        // header('Location: ' . BASE_URL . 'auth/login');
+        return $this->render('admin/index');
     }
 
 }
